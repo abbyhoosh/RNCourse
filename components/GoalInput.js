@@ -1,4 +1,11 @@
-import { StyleSheet, View, TextInput, Button, Modal, Image } from "react-native";
+import {
+  StyleSheet,
+  View,
+  TextInput,
+  Button,
+  Modal,
+  Image,
+} from "react-native";
 import { useState } from "react";
 
 function GoalInput(props) {
@@ -16,7 +23,10 @@ function GoalInput(props) {
   return (
     <Modal visible={props.visible} animationType="slide">
       <View style={styles.inputContainer}>
-      <Image style={styles.image} source={require('../assets/images/download.jpg')}/>
+        <Image
+          style={styles.image}
+          source={require("../assets/Images/download.jpg")}
+        />
         <TextInput
           style={styles.TextInput}
           placeholder="your course goal!"
@@ -25,10 +35,10 @@ function GoalInput(props) {
         />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Add goal" onPress={addGoalHandler} />
+            <Button title="Cancel" onPress={props.onCancel} color="#f31282" />
           </View>
           <View style={styles.button}>
-            <Button title="Cancel" onPress={props.onCancel} />
+            <Button title="Add goal" onPress={addGoalHandler} color="#5e0acc" />
           </View>
         </View>
       </View>
@@ -43,16 +53,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 24,
-    borderBottomWidth: 1,
-    borderBottomColor: "#cccccc",
-    padding: 16
+    padding: 16,
+    backgroundColor: "#311b6b",
   },
   TextInput: {
     borderWidth: 1,
-    borderColor: "#cccccc",
+    borderColor: "#e4d0ff",
+    backgroundColor: "#e4d0ff",
+    color: "#120438",
+    borderRadius: 6,
     width: "100%",
-    padding: 8,
+    padding: 16,
   },
   buttonContainer: {
     flexDirection: "row",
@@ -62,8 +73,8 @@ const styles = StyleSheet.create({
     margin: 8,
   },
   image: {
-    width: 100,
-    height: 100,
-    margin: 20
-  }
+    width: 300,
+    height: 300,
+    margin: 20,
+  },
 });
